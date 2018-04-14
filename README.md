@@ -9,7 +9,13 @@ Module: AINT152 Games Workshop
 
 Assignment Title: Unity 2D Zombie Shooter
 
+Instructions:
+W - Move north
+A - Move west
+S - Move south
+D - Move east
 
+Click the exe to start the game
 
 References:
 
