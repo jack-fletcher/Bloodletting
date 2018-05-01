@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour {
-
+    private bool changeable = true;
     private int health;
     private int score;
     private string gameInfo = "";
@@ -22,13 +22,23 @@ public class GameUI : MonoBehaviour {
     void advanceLevel()
     {
         if (score > 99 && score < 199)
+        {if (changeable == true)
+            {
+                changeable = false;
+                SceneManager.LoadScene("Game Info 1");
+                
+            }
+          
+        }
+        if (score > 199 && score < 299)
         {
-            SceneManager.LoadScene("Game Info");
+            SceneManager.LoadScene("Game Info 2");
         }
     }
     void Start()
     {
         UpdateUI();
+        DontDestroyOnLoad(this.gameObject);
     }
     void HandleonUpdateHealth(int newHealth)
     {

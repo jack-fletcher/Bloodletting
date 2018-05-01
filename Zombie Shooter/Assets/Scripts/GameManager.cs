@@ -30,8 +30,15 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Introduction");
     }
-    // Use this for initialization
-    void Start () {
+    bool isMute;
+
+    public void Mute()
+    {
+        isMute = !isMute;
+        AudioListener.volume = isMute ? 0 : 1;
+    } 
+        // Use this for initialization
+        void Start () {
 		
 	}
 	
