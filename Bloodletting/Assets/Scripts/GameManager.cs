@@ -17,10 +17,7 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Game level 1");
     }
-    public void EndGame()
-    {
-        SceneManager.LoadScene("Game level 2");
-    }
+ 
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
@@ -80,6 +77,10 @@ public class GameManager : MonoBehaviour {
     public void NextCredits()
     {
         SceneManager.LoadScene("Credits 2");
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
     // Use this for initialization
     void Start () {
