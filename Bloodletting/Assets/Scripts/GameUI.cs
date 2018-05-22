@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour {
 
     private double health;
-  
+    private FontStyle myFont;
     public static int killPoints;
     public static int score;
     private string gameInfo = "";
@@ -95,9 +95,10 @@ public class GameUI : MonoBehaviour {
     }
     void OnGUI()
     {
-        GUI.Box(boxRect, gameInfo);
+        GUIStyle myStyle = new GUIStyle();
+        GUI.Box(boxRect, gameInfo, myStyle);
         GUI.Box(boxRect2, ammoInfo);
-     
+       
         
             GUI.DrawTexture(new Rect(Screen.width - 110, Screen.height - 60, 40, 40), ammoImage, ScaleMode.ScaleToFit);
           

@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour {
     }
     public void StartGame()
     {
+        PlayerBehaviour.hpMultiplier = 1;
+        BulletHit2D.dpsMultiplier = 1;
         SceneManager.LoadScene("Game level 1");
+
     }
  
     public void BackToMainMenu()
