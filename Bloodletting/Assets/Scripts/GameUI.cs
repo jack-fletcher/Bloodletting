@@ -5,16 +5,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour {
-
+    
     private double health;
-    private FontStyle myFont;
     public static int killPoints;
     public static int score;
     private string gameInfo = "";
     private string task = "";
     public Texture2D ammoImage;
-    private Rect boxRect = new Rect(10, 10, 300, 70);
-    private Rect boxRect2 = new Rect(Screen.width - 110, Screen.height - 80, 100, 70);
+    private Rect boxReload = new Rect(Screen.width / 2, Screen.height / 2, 300, 150);
+    private Rect boxRect = new Rect(10, 10, 500, 150);
+    private Rect boxRect2 = new Rect(Screen.width - 185, Screen.height - 110, 175, 100);
     private string ammoInfo;
     void OnEnable()
     {
@@ -40,16 +40,8 @@ public class GameUI : MonoBehaviour {
             SceneManager.LoadScene("Game info 2");
             killPoints = 0;
         }
-        else if ((SceneManager.GetActiveScene().name == "Game level 3") && killPoints >= 30)
-        {
-            SceneManager.LoadScene("Game info 3");
-            killPoints = 0;
-        }
-        else if ((SceneManager.GetActiveScene().name == "Game level 4") && killPoints >= 40)
-        {
-            SceneManager.LoadScene("Game info 4)");
-            killPoints = 0;
-        }
+
+        
     }
     void Start()
     {
@@ -88,19 +80,27 @@ public class GameUI : MonoBehaviour {
     public void UpdateUI()
 
     {
-    
+
         gameInfo = "Score: " + score + "\nHealth: " + health.ToString() + "\nKill Counter:" + killPoints.ToString() + "\nTask:" + task ;
         ammoInfo = "Ammo:" + ShootBullet.clipSize + "/" + ShootBullet.maxClipSize;
         AdvanceLevel();
     }
     void OnGUI()
     {
-        GUIStyle myStyle = new GUIStyle();
-        GUI.Box(boxRect, gameInfo, myStyle);
-        GUI.Box(boxRect2, ammoInfo);
+
+        GUI.skin.box.fontSize = 30;
+        GUI.skin.label.fontSize = 50;
        
-        
-            GUI.DrawTexture(new Rect(Screen.width - 110, Screen.height - 60, 40, 40), ammoImage, ScaleMode.ScaleToFit);
+        GUI.Box(boxRect, gameInfo);
+        GUI.Box(boxRect2, ammoInfo);
+        if (ShootBullet.clipSize == 0)
+        {
+            GUI.Label(boxReload, "RELOAD");
+            
+
+        }
+
+        GUI.DrawTexture(new Rect(Screen.width - 110, Screen.height - 60, 40, 40), ammoImage, ScaleMode.ScaleToFit);
           
         
     }

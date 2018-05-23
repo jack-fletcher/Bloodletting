@@ -28,7 +28,7 @@ public class ZombieBehaviour : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-          
+            other.gameObject.GetComponent<Renderer>().material.color = Color.red;
             other.gameObject.SendMessage("TakeDamage", damage);
         }
     }
@@ -36,11 +36,21 @@ public class ZombieBehaviour : MonoBehaviour {
     {
        
         if (other.gameObject.CompareTag("Player"))
-        { 
+        {
+            
             if (Time.time > damageDelay+lastDamage){
+
                 other.gameObject.SendMessage("TakeDamage", dotDamage);
                 lastDamage = Time.time;
             }
+        }
+
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<Renderer>().material.color = Color.white;
         }
     }
     // Update is called once per frame
