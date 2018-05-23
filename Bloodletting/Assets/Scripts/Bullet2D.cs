@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet2D : MonoBehaviour
 {
 
-    public float speed = 5.0f;
+    public float speed = 10.0f;
     public float destroyTime = 2.0f;
     void Start()
     {

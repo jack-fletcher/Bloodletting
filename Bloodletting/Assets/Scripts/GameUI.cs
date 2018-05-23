@@ -30,12 +30,12 @@ public class GameUI : MonoBehaviour {
     }
     void AdvanceLevel()
     {
-        if ((SceneManager.GetActiveScene().name == "Game level 1") && killPoints >= 10)
+        if ((SceneManager.GetActiveScene().name == "Game level 1") && killPoints >= 30)
         {
             SceneManager.LoadScene("Game Info 1");
             killPoints = 0;
         }
-        else if ((SceneManager.GetActiveScene().name == "Game level 2") && killPoints >= 20)
+        else if ((SceneManager.GetActiveScene().name == "Game level 2") && killPoints >= 50)
         {
             SceneManager.LoadScene("Game info 2");
             killPoints = 0;
@@ -48,10 +48,10 @@ public class GameUI : MonoBehaviour {
         switch (SceneManager.GetActiveScene().name)
         {
             case "Game level 1":
-                task = "Kill 10 cannibals!";
+                task = "Kill 30 cannibals!";
                 break;
             case "Game level 2":
-                task = "Kill 20 cannibals!";
+                task = "Kill 50 cannibals!";
                 break;
             case "Game level 3":
                 task = "Get out of the alleyway!";

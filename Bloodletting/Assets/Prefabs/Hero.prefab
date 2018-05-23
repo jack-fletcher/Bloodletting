@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theCamera: {fileID: 0}
   smoothing: 100
-  adjustmentAngle: -95
+  adjustmentAngle: -80
 --- !u!114 &114852637258259634
 MonoBehaviour:
   m_ObjectHideFlags: 1
